@@ -1,0 +1,5 @@
+certificates
+nginx/log
+*.log
+*.mp4
+NOTE.md

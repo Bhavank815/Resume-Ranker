@@ -1,0 +1,61 @@
+version: "3"
+services:
+  analysis_service:
+    container_name: analysis_service
+    image: vectornguyen76/analysis_service
+    build:
+      context: ./analysis_service
+      dockerfile: Dockerfile
+    volumes:
+      - ./analysis_service/logs:/app/logs
+      - ./analysis_service/candidate_cv:/app/candidate_cv
+
+  frontend_service:
+    container_name: resume_ranking_frontend
+    image: vectornguyen76/resume_ranking_frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    command: npm start
+    # ports:
+    #   - 3000:3000
+
+  backend_service:
+    container_name: resume_ranking_backend
+    image: vectornguyen76/resume_ranking_backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    env_file:
+      - ./backend/.env.local
+    # ports:
+    #   - 5000:5000
+    restart: on-failure
+    volumes:
+      - ./backend/logs:/app/logs
+    depends_on:
+      - mongo_db
+
+  mongo_db:
+    container_name: mongo_db
+    image: mvertes/alpine-mongo:latest
+    volumes:
+      - mongo_data:/data/db/
+    restart: always
+    ports:
+      - 27017:27017
+
+  nginx_service:
+    container_name: resume_ranking_nginx
+    image: nginx:1.25.1-alpine
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx/develop.conf:/etc/nginx/conf.d/default.conf
+      - ./nginx/log:/var/log/nginx/
+    depends_on:
+      - backend_service
+      - frontend_service
+
+volumes:
+  mongo_data:
