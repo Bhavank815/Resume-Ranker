@@ -1,4 +1,4 @@
-# AI Recruitment Platform
+# Resume Ranker
 
 ## Overview
 
@@ -14,42 +14,58 @@ The AI Recruitment Platform revolutionizes the recruitment process by leveraging
 ## Setup Instructions
 
 ### Cloning the Repository
+git clone https://github.com/Bhavank815/Resume-Ranker
 
-```bash
-git clone https://github.com/yourusername/ai-recruitment-platform.git
-Installing Dependencies
+shell
+Copy
+
+### Installing Dependencies
 Navigate to the project directory and install required dependencies:
+cd ai-recruitment-platform pip install -r requirements.txt # Install Python dependencies npm install # Install Node.js packages
 
-bash
-cd ai-recruitment-platform
-pip install -r requirements.txt  # Install Python dependencies
-npm install  # Install Node.js packages
-Configuring Environment Variables
+mathematica
+Copy
+
+### Configuring Environment Variables
 Set up necessary environment variables:
+Create a .env file in the backend directory and add:
+DATABASE_URL="your-database-url" SECRET_KEY="your-secret-key"
 
-bash
-# Create a .env file in the backend directory and add:
-DATABASE_URL="your-database-url"
-SECRET_KEY="your-secret-key"
-Database Initialization
+csharp
+Copy
+
+### Database Initialization
 Initialize the database with Django migrations:
-
-bash
 python manage.py migrate
-Starting the Development Servers
-Run the backend and frontend servers:
 
-bash
-python manage.py runserver  # Starts the Django server
-npm start  # Runs the React application in another terminal
-Development Practices
-Code Quality
-Python: Ensure code quality with Flake8 linting.
-TypeScript: Maintain clean code with ESLint.
-General: Use Prettier for consistent code formatting across all files.
-Testing Frameworks
-Backend: Test Django applications with pytest for comprehensive coverage.
-Frontend: Employ Jest and the React Testing Library for robust frontend tests.
-Licensing
+shell
+Copy
+
+### Starting the Development Servers
+Run the backend and frontend servers:
+python manage.py runserver # Starts the Django server npm start # Runs the React application in another terminal
+
+markdown
+Copy
+
+## Development Practices
+
+### Code Quality
+- **Python**: Ensure code quality with Flake8 linting.
+- **TypeScript**: Maintain clean code with ESLint.
+- **General**: Use Prettier for consistent code formatting across all files.
+
+### Testing Frameworks
+- **Backend**: Test Django applications with pytest for comprehensive coverage.
+- **Frontend**: Employ Jest and the React Testing Library for robust frontend tests.
+
+## Licensing
 This project is available under the MIT License. See the LICENSE file for more details.
+This revised version formats the sections clearly, uses consistent commenting for the code snippets, and organizes the information logically for better readability. Adjust the content as necessary to match the specifics of your project setup.
+
+
+
+
+
+
 
