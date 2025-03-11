@@ -23,30 +23,18 @@ Copy
 Navigate to the project directory and install required dependencies:
 cd ai-recruitment-platform pip install -r requirements.txt # Install Python dependencies npm install # Install Node.js packages
 
-mathematica
-Copy
-
 ### Configuring Environment Variables
 Set up necessary environment variables:
 Create a .env file in the backend directory and add:
 DATABASE_URL="your-database-url" SECRET_KEY="your-secret-key"
 
-csharp
-Copy
-
 ### Database Initialization
 Initialize the database with Django migrations:
 python manage.py migrate
 
-shell
-Copy
-
 ### Starting the Development Servers
 Run the backend and frontend servers:
 python manage.py runserver # Starts the Django server npm start # Runs the React application in another terminal
-
-markdown
-Copy
 
 ## Development Practices
 
